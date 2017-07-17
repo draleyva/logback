@@ -898,12 +898,12 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
     filterAndLog_0_Or3Plus(FQCN, marker, Level.PROC, msg, null, t);
   }
   
-  // app
-    public boolean isAppEnabled() {
-        return isAppEnabled(null);
+  // actv
+    public boolean isActvEnabled() {
+        return isActvEnabled(null);
     }
 
-    public boolean isAppEnabled(Marker marker) {
+    public boolean isActvEnabled(Marker marker) {
         FilterReply decision = callTurboFilters(marker, Level.ACTV);
         if (decision == FilterReply.NEUTRAL) {
           return effectiveLevelInt <= Level.ACTV_INT;
