@@ -724,6 +724,238 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         filterAndLog_0_Or3Plus(FQCN, marker, Level.WARN, msg, null, t);
     }
 
+    // app
+    public boolean isAppEnabled() {
+        return isAppEnabled(null);
+    }
+
+    public boolean isAppEnabled(Marker marker) {
+        FilterReply decision = callTurboFilters(marker, Level.APP);
+        if (decision == FilterReply.NEUTRAL) {
+          return effectiveLevelInt <= Level.APP_INT;
+        } else if (decision == FilterReply.DENY) {
+          return false;
+        } else if (decision == FilterReply.ACCEPT) {
+          return true;
+        } else {
+          throw new IllegalStateException("Unknown FilterReply value: " + decision);
+        }
+    }
+
+  public void app(String msg) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.APP, msg, null, null);
+  }
+
+  public void app(String format, Object arg) {
+    filterAndLog_1(FQCN, null, Level.APP, format, arg, null);
+  }
+
+  public void app(String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, null, Level.APP, format, arg1, arg2, null);
+  }
+
+  public void app(String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.APP, format, argArray, null);
+  }
+
+  public void app(String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.APP, msg, null, t);
+  }
+
+  public void app(Marker marker, String msg) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.APP, msg, null, null);
+  }
+
+  public void app(Marker marker, String format, Object arg) {
+    filterAndLog_1(FQCN, marker, Level.APP, format, arg, null);
+  }
+
+  public void app(Marker marker, String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, marker, Level.APP, format, arg1, arg2, null);
+  }
+
+  public void app(Marker marker, String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.APP, format, argArray, null);
+  }
+
+  public void app(Marker marker, String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.APP, msg, null, t);
+  }
+  
+  // STRM
+  public boolean isStrmEnabled() {
+    return isStrmEnabled(null);
+  }
+
+  public boolean isStrmEnabled(Marker marker) {
+    FilterReply decision = callTurboFilters(marker, Level.STRM);
+    if (decision == FilterReply.NEUTRAL) {
+      return effectiveLevelInt <= Level.STRM_INT;
+    } else if (decision == FilterReply.DENY) {
+      return false;
+    } else if (decision == FilterReply.ACCEPT) {
+      return true;
+    } else {
+      throw new IllegalStateException("Unknown FilterReply value: " + decision);
+    }
+  }
+
+  public void strm(String msg) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.STRM, msg, null, null);
+  }
+
+  public void strm(String format, Object arg) {
+    filterAndLog_1(FQCN, null, Level.STRM, format, arg, null);
+  }
+
+  public void strm(String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, null, Level.STRM, format, arg1, arg2, null);
+  }
+
+  public void strm(String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.STRM, format, argArray, null);
+  }
+
+  public void strm(String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.STRM, msg, null, t);
+  }
+
+  public void strm(Marker marker, String msg) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.STRM, msg, null, null);
+  }
+
+  public void strm(Marker marker, String format, Object arg) {
+    filterAndLog_1(FQCN, marker, Level.STRM, format, arg, null);
+  }
+
+  public void strm(Marker marker, String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, marker, Level.STRM, format, arg1, arg2, null);
+  }
+
+  public void strm(Marker marker, String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.STRM, format, argArray, null);
+  }
+
+  public void strm(Marker marker, String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.STRM, msg, null, t);
+  }
+
+  // PROC
+  public boolean isProcEnabled() {
+    return isProcEnabled(null);
+  }
+
+  public boolean isProcEnabled(Marker marker) {
+    FilterReply decision = callTurboFilters(marker, Level.PROC);
+    if (decision == FilterReply.NEUTRAL) {
+      return effectiveLevelInt <= Level.PROC_INT;
+    } else if (decision == FilterReply.DENY) {
+      return false;
+    } else if (decision == FilterReply.ACCEPT) {
+      return true;
+    } else {
+      throw new IllegalStateException("Unknown FilterReply value: " + decision);
+    }
+  }
+
+  public void proc(String msg) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.PROC, msg, null, null);
+  }
+
+  public void proc(String format, Object arg) {
+    filterAndLog_1(FQCN, null, Level.PROC, format, arg, null);
+  }
+
+  public void proc(String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, null, Level.PROC, format, arg1, arg2, null);
+  }
+
+  public void proc(String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.PROC, format, argArray, null);
+  }
+
+  public void proc(String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.PROC, msg, null, t);
+  }
+
+  public void proc(Marker marker, String msg) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.PROC, msg, null, null);
+  }
+
+  public void proc(Marker marker, String format, Object arg) {
+    filterAndLog_1(FQCN, marker, Level.PROC, format, arg, null);
+  }
+
+  public void proc(Marker marker, String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, marker, Level.PROC, format, arg1, arg2, null);
+  }
+
+  public void proc(Marker marker, String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.PROC, format, argArray, null);
+  }
+
+  public void proc(Marker marker, String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.PROC, msg, null, t);
+  }
+  
+  // app
+    public boolean isAppEnabled() {
+        return isAppEnabled(null);
+    }
+
+    public boolean isAppEnabled(Marker marker) {
+        FilterReply decision = callTurboFilters(marker, Level.ACTV);
+        if (decision == FilterReply.NEUTRAL) {
+          return effectiveLevelInt <= Level.ACTV_INT;
+        } else if (decision == FilterReply.DENY) {
+          return false;
+        } else if (decision == FilterReply.ACCEPT) {
+          return true;
+        } else {
+          throw new IllegalStateException("Unknown FilterReply value: " + decision);
+        }
+    }
+
+  public void actv(String msg) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.ACTV, msg, null, null);
+  }
+
+  public void actv(String format, Object arg) {
+    filterAndLog_1(FQCN, null, Level.ACTV, format, arg, null);
+  }
+
+  public void actv(String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, null, Level.ACTV, format, arg1, arg2, null);
+  }
+
+  public void actv(String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.ACTV, format, argArray, null);
+  }
+
+  public void actv(String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, null, Level.ACTV, msg, null, t);
+  }
+
+  public void actv(Marker marker, String msg) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.ACTV, msg, null, null);
+  }
+
+  public void actv(Marker marker, String format, Object arg) {
+    filterAndLog_1(FQCN, marker, Level.ACTV, format, arg, null);
+  }
+
+  public void actv(Marker marker, String format, Object arg1, Object arg2) {
+    filterAndLog_2(FQCN, marker, Level.ACTV, format, arg1, arg2, null);
+  }
+
+  public void actv(Marker marker, String format, Object[] argArray) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.ACTV, format, argArray, null);
+  }
+
+  public void actv(Marker marker, String msg, Throwable t) {
+    filterAndLog_0_Or3Plus(FQCN, marker, Level.ACTV, msg, null, t);
+  }
+  
     public boolean isAdditive() {
         return additive;
     }

@@ -27,20 +27,48 @@ public final class Level implements java.io.Serializable {
     private static final long serialVersionUID = -814092767334282137L;
 
     public static final int OFF_INT = Integer.MAX_VALUE;
+    public static final int APP_INT = 60000;
+    public static final int ACTV_INT = 50000;
     public static final int ERROR_INT = 40000;
     public static final int WARN_INT = 30000;
     public static final int INFO_INT = 20000;
     public static final int DEBUG_INT = 10000;
     public static final int TRACE_INT = 5000;
+    public static final int STRM_INT = 4000;
+    public static final int PROC_INT = 3000;
     public static final int ALL_INT = Integer.MIN_VALUE;
 
     public static final Integer OFF_INTEGER = OFF_INT;
+    public static final Integer APP_INTEGER = APP_INT;
+    public static final Integer ACTV_INTEGER = ACTV_INT;
     public static final Integer ERROR_INTEGER = ERROR_INT;
     public static final Integer WARN_INTEGER = WARN_INT;
     public static final Integer INFO_INTEGER = INFO_INT;
     public static final Integer DEBUG_INTEGER = DEBUG_INT;
     public static final Integer TRACE_INTEGER = TRACE_INT;
+    public static final Integer STRM_INTEGER = STRM_INT;
+    public static final Integer PROC_INTEGER = PROC_INT;
     public static final Integer ALL_INTEGER = ALL_INT;
+
+    /**
+     * The <code>ACTV</code> is used to turn off logging.
+     */
+    public static final Level ACTV = new Level(ACTV_INT, "ACTV");
+
+    /**
+     * The <code>PROC</code> is used to turn off logging.
+     */
+    public static final Level PROC = new Level(PROC_INT, "PROC");
+
+    /**
+     * The <code>STRM</code> is used to turn off logging.
+     */
+    public static final Level STRM = new Level(STRM_INT, "STRM");
+
+    /**
+     * The <code>APP</code> is used to turn off logging.
+     */
+    public static final Level APP = new Level(APP_INT, "APP");
 
     /**
      * The <code>OFF</code> is used to turn off logging.
@@ -113,6 +141,10 @@ public final class Level implements java.io.Serializable {
      */
     public Integer toInteger() {
         switch (levelInt) {
+        case APP_INT:
+            return APP_INTEGER;
+        case ACTV_INT:
+            return ACTV_INTEGER;
         case ALL_INT:
             return ALL_INTEGER;
         case TRACE_INT:
@@ -127,6 +159,10 @@ public final class Level implements java.io.Serializable {
             return ERROR_INTEGER;
         case OFF_INT:
             return OFF_INTEGER;
+        case STRM_INT:
+            return STRM_INTEGER;
+        case PROC_INT:
+            return PROC_INTEGER;
         default:
             throw new IllegalStateException("Level " + levelStr + ", " + levelInt + " is unknown.");
         }
@@ -186,6 +222,14 @@ public final class Level implements java.io.Serializable {
             return ERROR;
         case OFF_INT:
             return OFF;
+        case APP_INT:
+            return APP;
+        case ACTV_INT:
+            return ACTV;
+        case STRM_INT:
+            return STRM;
+        case PROC_INT:
+            return PROC;
         default:
             return defaultLevel;
         }
@@ -220,6 +264,18 @@ public final class Level implements java.io.Serializable {
         }
         if (sArg.equalsIgnoreCase("OFF")) {
             return Level.OFF;
+        }
+        if (sArg.equalsIgnoreCase("APP")) {
+            return Level.APP;
+        }
+        if (sArg.equalsIgnoreCase("ACTV")) {
+            return Level.ACTV;
+        }
+        if (sArg.equalsIgnoreCase("PROC")) {
+            return Level.PROC;
+        }
+        if (sArg.equalsIgnoreCase("STRM")) {
+            return Level.STRM;
         }
         return defaultLevel;
     }
