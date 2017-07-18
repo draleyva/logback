@@ -27,8 +27,7 @@ public final class Level implements java.io.Serializable {
     private static final long serialVersionUID = -814092767334282137L;
 
     public static final int OFF_INT = Integer.MAX_VALUE;
-    public static final int APP_INT = 60000;
-    public static final int ACTV_INT = 50000;
+    public static final int APP_INT = 60000;    
     public static final int ERROR_INT = 40000;
     public static final int WARN_INT = 30000;
     public static final int INFO_INT = 20000;
@@ -36,6 +35,7 @@ public final class Level implements java.io.Serializable {
     public static final int TRACE_INT = 5000;
     public static final int STRM_INT = 4000;
     public static final int PROC_INT = 3000;
+    public static final int ACTV_INT = 2000;
     public static final int ALL_INT = Integer.MIN_VALUE;
 
     public static final Integer OFF_INTEGER = OFF_INT;

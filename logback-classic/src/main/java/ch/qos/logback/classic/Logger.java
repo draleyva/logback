@@ -997,6 +997,10 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         filterAndLog_0_Or3Plus(fqcn, marker, level, message, argArray, t);
     }
 
+    public void log(Marker marker, String fqcn, Level level, String message, Object[] argArray, Throwable t) {
+        filterAndLog_0_Or3Plus(fqcn, marker, level, message, argArray, t);
+    }
+    
     /**
      * Support SLF4J interception during initialization as introduced in SLF4J version 1.7.15
      * @since 1.1.4 
